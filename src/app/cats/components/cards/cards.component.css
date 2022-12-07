@@ -1,0 +1,12 @@
+
+
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  cursor: pointer;
+  transform: scale(1.05); 
+}
