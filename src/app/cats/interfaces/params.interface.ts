@@ -1,3 +1,4 @@
 export interface Pararams {
-  limit?: number
+  limit?: number;
+  breed_ids?: string;
 }
