@@ -1,9 +1,7 @@
-<div class="constainer">
-  <div class="row">
-    <div class="card-columns" *ngFor="let cat of cats">
-      <div class="card">
-        <img [src]="cat.url" class="card-img-top" alt="...">
+<div class="constainer ">
+    <div class="card-columns p-3" >
+      <div class="card" *ngFor="let cat of cats">
+        <img [src]="cat.url" class="card-img-top zoom" alt="..." width="200px">
       </div>
     </div>
-  </div>
 </div>
