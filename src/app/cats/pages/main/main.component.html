@@ -1,12 +1,12 @@
-<div class="contatiner-fluid">
-  <app-navbar></app-navbar>
-
-      <div class="col-12 col-lg-4" style="border: 2px solid red;">
-        <app-search-menu></app-search-menu>
-      </div>
-      <div class="col-12 col-lg-9 border border-info rounded">
-        <app-cards></app-cards>
-      </div>
-
-
+<app-loader [loader]="loader"></app-loader>
+<app-navbar></app-navbar>
+<div class="contatiner-fluid p-3">
+  <div class="h-100">
+    <div class="collapse width" id="collapseWidthExample">
+      <app-search-menu (cats)="getSearchCats($event)"></app-search-menu>
+    </div>
+  </div>
+  <div class="col border border-info rounded">
+    <app-cards [cats]="cats"></app-cards>
+  </div>
 </div>
