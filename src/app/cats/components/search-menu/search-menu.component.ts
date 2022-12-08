@@ -12,10 +12,12 @@ import { CatsService } from '../../services/cats.service';
 })
 export class SearchMenuComponent implements OnInit {
   @Output() cats = new EventEmitter<Array<Cat>>();
+  @Output() params = new EventEmitter<any>();
 
   loader!: boolean;
   form!: FormGroup;
   breeds!: Array<Breed>;
+  countries: Array<any> = [];
 
   constructor(
     private catsSerice: CatsService,
@@ -31,22 +33,31 @@ export class SearchMenuComponent implements OnInit {
   createForm(): void {
     this.form = this.formBuilder.group({
       breed_ids: [''],
+      origin: ['']
     });
   }
 
+
   getBreeds(): void {
     this.catsSerice.getAllBreeds().subscribe((response: Array<Breed>) => {
+      this.countries = [];
       this.breeds = response;
+      this.getContries(response)
     });
   }
 
   search(): void {
-    this.loader = true;
-    const params: Params = this.form.value;
-    params.limit = 15;
-    this.catsSerice.getCatsbyBreed(params).subscribe((response: Array<Cat>) => {
-      this.cats.emit(response);
-      this.loader = false;
-    });
+
+    this.params.emit(this.form.value)
+
+  }
+
+  getContries(breeds:Array<Breed>, country?:string):void{
+    const countries: Array<string> = []
+    breeds.forEach((breeds)=>{
+     countries.push(breeds.origin) 
+    })
+    const countriesFiltered = new Set(countries);
+    this.countries = [...countriesFiltered]
   }
 }

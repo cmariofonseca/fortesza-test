@@ -2,8 +2,8 @@
 <app-navbar></app-navbar>
 <div class="contatiner-fluid p-3">
   <div class="h-100">
-    <div class="collapse width" id="collapseWidthExample">
-      <app-search-menu (cats)="getSearchCats($event)"></app-search-menu>
+    <div class="collapse show width" id="menu">
+      <app-search-menu (params)="getParamsSearch($event)"></app-search-menu>
     </div>
   </div>
   <div class="col border border-info rounded">
