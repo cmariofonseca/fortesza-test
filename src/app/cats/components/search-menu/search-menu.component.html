@@ -2,7 +2,7 @@
 <div class="container">
   <form [formGroup]="form">
     <div class="row">
-      <div class="form-group w-100 col-12 col-lg-4">
+      <div class="form-group w-100 col-12 col-lg-3">
         <label for="breed">Breed</label>
         <select class="form-control" id="breed" formControlName="breed_ids">
           <option *ngFor="let breed of breeds" [value]="breed.id"
@@ -10,7 +10,7 @@
           >
         </select>
       </div>
-      <div class="form-group w-100 col-12 col-lg-4">
+      <div class="form-group w-100 col-12 col-lg-3">
         <label for="country">Contry</label>
         <select class="form-control" id="country" formControlName="origin">
           <option *ngFor="let country of countries" [value]="country"
@@ -18,9 +18,22 @@
           >
         </select>
       </div>
-      <div class="form-group w-100 col-12 col-lg-4">
+      <div class="form-group w-100 col-12 col-lg-3">
         <label for="name">Name</label>
-        <input class="form-control" id="name" placeholder="Name" />
+        <input
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          formControlName="name"
+        />
+      </div>
+      <div class="form-group w-100 col-12 col-lg-3">
+        <label for="limit">Limit</label>
+        <select class="form-control" id="limit" formControlName="limit">
+          <option *ngFor="let limit of limities" [value]="limit"
+            >{{limit}}</option
+          >
+        </select>
       </div>
     </div>
   </form>

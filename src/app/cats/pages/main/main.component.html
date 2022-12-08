@@ -1,12 +1,16 @@
 <app-loader [loader]="loader"></app-loader>
 <app-navbar></app-navbar>
 <div class="contatiner-fluid p-3">
-  <div class="h-100">
-    <div class="collapse show width" id="menu">
-      <app-search-menu (params)="getParamsSearch($event)"></app-search-menu>
+  <div class="row">
+    <div class="col-12">
+      <div class="collapse show width" id="menu">
+        <app-search-menu (params)="getParamsSearch($event)"></app-search-menu>
+      </div>
     </div>
   </div>
-  <div class="col border border-info rounded">
-    <app-cards [cats]="cats"></app-cards>
+  <div class="row">
+    <div class="col border border-info rounded m-5">
+      <app-cards [cats]="cats"></app-cards>
+    </div>
   </div>
 </div>

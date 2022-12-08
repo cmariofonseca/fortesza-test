@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Params } from '@angular/router';
 
 import { Breed, Cat } from '../../interfaces/cats.intefase';
+import { limities } from '../../interfaces/params.interface';
 import { CatsService } from '../../services/cats.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class SearchMenuComponent implements OnInit {
   form!: FormGroup;
   breeds!: Array<Breed>;
   countries: Array<any> = [];
+  limities:Array<number> = limities;
 
   constructor(
     private catsSerice: CatsService,
@@ -33,7 +35,9 @@ export class SearchMenuComponent implements OnInit {
   createForm(): void {
     this.form = this.formBuilder.group({
       breed_ids: [''],
-      origin: ['']
+      limit:['15'],
+      origin: [''],
+      name:['']
     });
   }
 
@@ -47,9 +51,7 @@ export class SearchMenuComponent implements OnInit {
   }
 
   search(): void {
-
     this.params.emit(this.form.value)
-
   }
 
   getContries(breeds:Array<Breed>, country?:string):void{
