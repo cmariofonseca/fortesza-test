@@ -1,12 +1,39 @@
+.gallery {
+  column-gap: 0.5em;
+  columns: 4 250px;
+  padding: 0.5rem;
+}
 
+.cat-card {
+  background-color: #fff;
+  border: 1px solid grey;
+  break-inside: avoid;
+  display: block;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
 
+.cat-card-body {
+  padding: 0.5em;
+}
+
+img {
+  width: 100%;
+  outline: 2px solid #fff;
+  outline-offset: -10px;
+}
 
 .zoom {
-  transition: transform .2s; /* Animation */
-  margin: 0 auto;
+  transition: transform 0.2s; /* Animation */
 }
 
 .zoom:hover {
   cursor: pointer;
-  transform: scale(1.05); 
+  transform: scale(1.02);
+}
+
+.flag {
+  width: 32px;
+  height: 24px;
+  outline: none;
 }

@@ -62,4 +62,8 @@ export class SearchMenuComponent implements OnInit {
     const countriesFiltered = new Set(countries);
     this.countries = [...countriesFiltered]
   }
+
+  clear():void{
+    this.form.reset({limit: 15});
+  }
 }
