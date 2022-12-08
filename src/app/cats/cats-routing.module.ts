@@ -4,17 +4,22 @@ import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
   {
-    path:"",
-    children: [{
-      path:'main', component: MainComponent,
-    },{
-      path:'**', redirectTo:"main"
-    }]
-  }
+    path: '',
+    children: [
+      {
+        path: 'main',
+        component: MainComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'main',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CatsRoutingModule { }
+export class CatsRoutingModule {}

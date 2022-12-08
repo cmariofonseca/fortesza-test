@@ -19,7 +19,7 @@ export class SearchMenuComponent implements OnInit {
   form!: FormGroup;
   breeds!: Array<Breed>;
   countries: Array<any> = [];
-  limities:Array<number> = limities;
+  limities: Array<number> = limities;
 
   constructor(
     private catsSerice: CatsService,
@@ -35,32 +35,31 @@ export class SearchMenuComponent implements OnInit {
   createForm(): void {
     this.form = this.formBuilder.group({
       breed_ids: [''],
-      limit:['15'],
+      limit: ['15'],
       origin: [''],
-      name:['']
+      name: [''],
     });
   }
-
 
   getBreeds(): void {
     this.catsSerice.getAllBreeds().subscribe((response: Array<Breed>) => {
       this.countries = [];
       this.breeds = response;
-      this.getContries(response)
+      this.getContries(response);
     });
   }
 
   search(): void {
-    this.params.emit(this.form.value)
+    this.params.emit(this.form.value);
   }
 
-  getContries(breeds:Array<Breed>, country?:string):void{
-    const countries: Array<string> = []
-    breeds.forEach((breeds)=>{
-     countries.push(breeds.origin) 
-    })
+  getContries(breeds: Array<Breed>, country?: string): void {
+    const countries: Array<string> = [];
+    breeds.forEach((breeds) => {
+      countries.push(breeds.origin);
+    });
     const countriesFiltered = new Set(countries);
-    this.countries = [...countriesFiltered]
+    this.countries = [...countriesFiltered];
   }
 
   clear():void{
