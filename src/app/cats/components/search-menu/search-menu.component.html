@@ -1,35 +1,59 @@
 <app-loader [loader]="loader"></app-loader>
+<div class="offcanvas-header d-lg-none">
+  <a
+    class="offcanvas-title navbar-brand"
+    id="staticBackdropLabel"
+    href="https://thecatapi.com/"
+    target="_blank"
+  >
+    <img
+      src="../../../../assets/images/gato.png"
+      width="32"
+      height="32"
+      class="d-inline-block align-top"
+    />
+    <span class="h3 m-2">CATS</span>
+  </a>
+
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="offcanvas"
+    aria-label="Close"
+  ></button>
+</div>
 <div class="container">
   <form [formGroup]="form">
     <div class="row">
-      <div class="form-group w-100 col-12 col-lg-3">
-        <label for="breed">Breed</label>
-        <select class="form-control" id="breed" formControlName="breed_ids">
+      <div class="col-12 col-lg-3">
+        <label for="breed" class="form-label">Breed</label>
+        <select class="form-select" id="breed" formControlName="breed_ids">
           <option *ngFor="let breed of breeds" [value]="breed.id"
             >{{breed.name}}</option
           >
         </select>
       </div>
-      <div class="form-group w-100 col-12 col-lg-3">
-        <label for="country">Contry</label>
-        <select class="form-control" id="country" formControlName="origin">
+      <div class="col-12 col-lg-3">
+        <label for="country" class="form-label">Contry</label>
+        <select class="form-select" id="country" formControlName="origin">
           <option *ngFor="let country of countries" [value]="country"
             >{{country}}</option
           >
         </select>
       </div>
-      <div class="form-group w-100 col-12 col-lg-3">
-        <label for="name">Name</label>
+      <div class="col-12 col-lg-3">
+        <label for="name" class="form-label">Name</label>
         <input
+          type="text"
           class="form-control"
           id="name"
           placeholder="Name"
           formControlName="name"
         />
       </div>
-      <div class="form-group w-100 col-12 col-lg-3">
-        <label for="limit">Limit</label>
-        <select class="form-control" id="limit" formControlName="limit">
+      <div class="col-12 col-lg-3">
+        <label for="limit" class="form-label">Limit</label>
+        <select class="form-select" id="limit" formControlName="limit">
           <option *ngFor="let limit of limities" [value]="limit"
             >{{limit}}</option
           >
@@ -37,9 +61,21 @@
       </div>
     </div>
   </form>
-  <div class="row mb-5">
-    <div class="col d-flex justify-content-center">
-      <button class="btn btn-primary w-25" (click)="search()">SEARCH</button>
+  <div class="row m-4">
+    <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-start gap-2">
+      <button
+        class="btn btn-search fw-bold w-100"
+        (click)="search()"
+        data-bs-dismiss="offcanvas"
+      >
+        SEARCH
+      </button>
+      <button
+        class="btn btn-clear border-warning fw-bold w-100"
+        (click)="clear()"
+      >
+        CLEAR
+      </button>
     </div>
   </div>
 </div>
