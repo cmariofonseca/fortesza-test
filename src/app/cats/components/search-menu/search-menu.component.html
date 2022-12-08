@@ -12,7 +12,11 @@
       </div>
       <div class="form-group w-100 col-12 col-lg-4">
         <label for="country">Contry</label>
-        <select class="form-control" id="conutry"></select>
+        <select class="form-control" id="country" formControlName="origin">
+          <option *ngFor="let country of countries" [value]="country"
+            >{{country}}</option
+          >
+        </select>
       </div>
       <div class="form-group w-100 col-12 col-lg-4">
         <label for="name">Name</label>

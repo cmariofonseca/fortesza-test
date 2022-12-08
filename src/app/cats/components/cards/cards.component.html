@@ -7,6 +7,17 @@
         alt="..."
         width="200px"
       />
+      <div class="card-body">
+        <h5 class="text-center">
+          Breed: {{cat.name || cat.breeds[0].name}}
+        </h5>
+        <h5 class="text-center">
+          Orign: {{cat.origin || cat.breeds[0].origin}}
+        </h5>
+        <h5 class="text-center">
+          Life span: {{cat.life_span || cat.breeds[0].life_span}}
+        </h5>
+      </div>
     </div>
   </div>
 </div>

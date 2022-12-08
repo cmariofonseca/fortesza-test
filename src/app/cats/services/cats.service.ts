@@ -14,7 +14,7 @@ export class CatsService {
   constructor(private webRequest: WebRequestService) {}
 
   getCatsImages(params?: Params): Observable<Array<Cat>> {
-    return this.webRequest.getWithHeaders(this.pathCatsImages, params);
+    return this.webRequest.getWithHeaders(this.pathCatBreed, params);
   }
 
   getAllBreeds(): Observable<Array<Breed>> {

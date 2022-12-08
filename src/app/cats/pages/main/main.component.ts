@@ -11,15 +11,16 @@ import { CatsService } from '../../services/cats.service';
 export class MainComponent implements OnInit {
   loader!: boolean;
   limit: number = 15;
+  params:any = {};
   cats: Array<Cat>;
 
   constructor(private catsService: CatsService) {}
 
   ngOnInit(): void {
-    this.getFistCats();
+    this.getFirstCats();
   }
 
-  getFistCats(): void {
+  getFirstCats(): void {
     this.loader = true;
     const params: Params = { limit: this.limit };
     this.catsService.getCatsImages(params).subscribe((response: Array<Cat>) => {
@@ -28,8 +29,9 @@ export class MainComponent implements OnInit {
     });
   }
 
-  getSearchCats(event: Array<Cat>): void {
-    console.log(event);
-    this.cats = event;
+
+
+  getParamsSearch(event:any):void{
+    if(event) this.params = event;
   }
 }
