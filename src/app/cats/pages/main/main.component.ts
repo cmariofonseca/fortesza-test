@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   constructor(private catsService: CatsService) {}
 
   ngOnInit(): void {
+    this.loader = true;
     this.getBreeds();
   }
 
@@ -26,7 +27,7 @@ export class MainComponent implements OnInit {
         this.breedsIds = this.breedsIds + `,${breed.id}`;
       });
       this.getFirstCats();
-    });
+    },()=>this.loader = false);
   }
 
   getFirstCats(): void {
@@ -37,7 +38,7 @@ export class MainComponent implements OnInit {
       .subscribe((response: Array<Cat>) => {
         this.cats = response;
         this.loader = false;
-      });
+      },()=>this.loader = false);
   }
 
   getParamsSearch(event: any): void {
@@ -50,20 +51,18 @@ export class MainComponent implements OnInit {
   getCats(): void {
     this.loader = true;
     this.cats = [];
-    if (!this.params.breed_ids) this.params.breed_ids = this.breedsIds;
     this.catsService
       .getCatsbyBreed(this.params)
       .subscribe((response: Array<Cat>) => {
         this.cats = response;
         if (this.params.origin) this.filterCatsByOrigin(this.params.origin);
         this.loader = false;
-      });
+      },()=>this.loader = false);
   }
 
   filterCatsByOrigin(origin: string): void {
     const auxCats: Array<Cat> = [];
     this.cats.forEach((cat: Cat) => {
-      console.log(cat.breeds[0].origin);
       if (cat.breeds[0].origin === origin) {
         auxCats.push(cat);
       }

@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Params } from '@angular/router';
 
-import { Breed, Cat } from '../../interfaces/cats.intefase';
+import { Breed, Cat, Category } from '../../interfaces/cats.intefase';
 import { limities } from '../../interfaces/params.interface';
 import { CatsService } from '../../services/cats.service';
 
@@ -20,6 +19,7 @@ export class SearchMenuComponent implements OnInit {
   breeds!: Array<Breed>;
   countries: Array<any> = [];
   limities: Array<number> = limities;
+  categories: Array<Category>;
 
   constructor(
     private catsSerice: CatsService,
@@ -30,6 +30,7 @@ export class SearchMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBreeds();
+    this.getCategories();
   }
 
   createForm(): void {
@@ -37,7 +38,7 @@ export class SearchMenuComponent implements OnInit {
       breed_ids: [''],
       limit: ['15'],
       origin: [''],
-      name: [''],
+      category_ids: [''],
     });
   }
 
@@ -47,6 +48,12 @@ export class SearchMenuComponent implements OnInit {
       this.breeds = response;
       this.getContries(response);
     });
+  }
+
+  getCategories(): void {
+    this.catsSerice.getAllCategories().subscribe((response:Array<Category>)=>{
+      this.categories = response
+    })
   }
 
   search(): void {
