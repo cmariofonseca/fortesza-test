@@ -8,9 +8,8 @@ describe('CatViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatViewComponent ]
-    })
-    .compileComponents();
+      declarations: [CatViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

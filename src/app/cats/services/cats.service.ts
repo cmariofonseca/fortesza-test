@@ -14,23 +14,19 @@ export class CatsService {
 
   constructor(private webRequest: WebRequestService) {}
 
-  getCat(id:string):Observable<Cat>{
-    return this.webRequest.getWithHeaders(`images/${id}`)
-  }
-
-  getCatsImages(params?: Params): Observable<Array<Cat>> {
-    return this.webRequest.getWithHeaders(this.pathCatBreed, params);
-  }
-
   getAllBreeds(): Observable<Array<Breed>> {
     return this.webRequest.getWithHeaders(this.pathCatBreed);
   }
 
-  getCatsbyBreed(params?: Params): Observable<Array<Cat>> {
+  getAllCategories(): Observable<Array<Category>> {
+    return this.webRequest.getWithHeaders(this.pathCatCategories);
+  }
+
+  getCats(params?: Params): Observable<Array<Cat>> {
     return this.webRequest.getWithHeaders(this.pathCatsImages, params);
   }
 
-  getAllCategories():Observable<Array<Category>>{
-    return this.webRequest.getWithHeaders(this.pathCatCategories);
+  getCat(id: string): Observable<Cat> {
+    return this.webRequest.getWithHeaders(`images/${id}`);
   }
 }

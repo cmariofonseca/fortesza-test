@@ -7,8 +7,6 @@ export interface Pararams {
 }
 
 export interface Category {
-  id:number,
-  name: string
+  id: number;
+  name: string;
 }
-
-export const limities = [15, 30, 45, 75, 100];

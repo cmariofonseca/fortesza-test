@@ -10,7 +10,12 @@ import { CardsComponent } from './components/cards/cards.component';
 import { CatViewComponent } from './pages/cat-view/cat-view.component';
 
 @NgModule({
-  declarations: [MainComponent, SearchMenuComponent, CardsComponent, CatViewComponent],
+  declarations: [
+    MainComponent,
+    SearchMenuComponent,
+    CardsComponent,
+    CatViewComponent,
+  ],
   imports: [CommonModule, CatsRoutingModule, SharedModule],
 })
 export class CatsModule {}
