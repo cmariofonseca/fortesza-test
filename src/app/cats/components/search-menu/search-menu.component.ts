@@ -57,8 +57,17 @@ export class SearchMenuComponent implements OnInit {
   }
 
   search(): void {
-    this.params.emit(this.form.value);
+    const {category_ids, limit, ... rest} = this.form.value
+    if(category_ids){
+      const category = {category_ids:category_ids, limit:limit}
+      this.params.emit(category);
+    }else{
+      rest.limit = limit;
+      this.params.emit(rest);
+    }
+    this.clear()
   }
+
 
   getContries(breeds: Array<Breed>, country?: string): void {
     const countries: Array<string> = [];
