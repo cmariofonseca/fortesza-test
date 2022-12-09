@@ -12,8 +12,9 @@ const routes: Routes = [
         component: MainComponent,
       },
       {
-        path: 'cat/:id', 
-        component: CatViewComponent},
+        path: 'cat/:id',
+        component: CatViewComponent,
+      },
       {
         path: '**',
         redirectTo: 'main',

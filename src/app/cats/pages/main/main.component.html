@@ -3,7 +3,12 @@
 <app-navbar></app-navbar>
 
 <div class="d-md-block d-lg-block d-none">
-  <app-search-menu (params)="getParamsSearch($event)"></app-search-menu>
+  <app-search-menu
+    (params)="getParamsSearch($event)"
+    [breeds]="breeds"
+    [countries]="countries"
+    [categories]="categories"
+  ></app-search-menu>
 </div>
 
 <div class="d-md-none d-lg-none">
@@ -13,10 +18,15 @@
     data-bs-backdrop="static"
     tabindex="-1"
   >
-    <app-search-menu (params)="getParamsSearch($event)"></app-search-menu>
+    <app-search-menu
+      (params)="getParamsSearch($event)"
+      [breeds]="breeds"
+      [countries]="countries"
+      [categories]="categories"
+    ></app-search-menu>
   </div>
 </div>
 
-<div class="mt-3">
+<div class="mt-5">
   <app-cards [cats]="cats"></app-cards>
 </div>

@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  api:  "https://api.thecatapi.com/v1",
-  api_key: "live_MM8urI3uoJnLD8TUv9aSKtjETJEdj5DUK6p55zVmJh9HUEi2fDIj6jcQB5kqMCLp"
+  api: 'https://api.thecatapi.com/v1',
+  api_key:
+    'live_MM8urI3uoJnLD8TUv9aSKtjETJEdj5DUK6p55zVmJh9HUEi2fDIj6jcQB5kqMCLp',
 };
 
 /*
