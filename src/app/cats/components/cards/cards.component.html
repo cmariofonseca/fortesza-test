@@ -1,31 +1,39 @@
 <div class="container">
-  <div class="gallery">
-    <div class="cat-card rounded zoom" *ngFor="let cat of cats">
-      <a [routerLink]="['/cat', cat.id]">
-        <img [src]="cat.url || cat.image.url" class="rounded-top" alt="..." />
-      </a>
-      <div class="cat-card-body" *ngIf="cat.breeds.length">
-        <h5 class="card-text text-center">
-          Breed name: {{ cat.name || cat.breeds[0].name }}
-        </h5>
+  <ng-container *ngIf="showGallery; else noData">
+    <div class="gallery">
+      <div class="cat-card rounded zoom" *ngFor="let cat of cats">
+        <a [routerLink]="['/cat', cat.id]">
+          <img [src]="cat.url || cat.image.url" class="rounded-top" alt="..." />
+        </a>
+        <div class="cat-card-body" *ngIf="cat.breeds.length">
+          <h5 class="card-text text-center">
+            Breed name: {{ cat.name || cat.breeds[0].name }}
+          </h5>
 
-        <h5 class="card-text text-center">
-          Orign:
-          <img
-            [src]="
-              'https://flagcdn.com/32x24/' +
-              cat.breeds[0].country_code.toLowerCase() +
-              '.png'
-            "
-            class="flag"
-          />
-          {{ cat.origin || cat.breeds[0].origin }}
-        </h5>
+          <h5 class="card-text text-center">
+            Orign:
+            <img
+              [src]="
+                'https://flagcdn.com/32x24/' +
+                cat.breeds[0].country_code.toLowerCase() +
+                '.png'
+              "
+              class="flag"
+            />
+            {{ cat.origin || cat.breeds[0].origin }}
+          </h5>
 
-        <h5 class="card-text text-center">
-          Life span: {{ cat.life_span || cat.breeds[0].life_span }}
-        </h5>
+          <h5 class="card-text text-center">
+            Life span: {{ cat.life_span || cat.breeds[0].life_span }}
+          </h5>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #noData>
+    <div>
+      <h2>Try again please</h2>
+      <img src="assets/images/no_data.jpg" />
+    </div>
+  </ng-template>
 </div>

@@ -7,7 +7,16 @@ import { Cat } from '../../interfaces/cats.intefase';
   styleUrls: ['./cards.component.css'],
 })
 export class CardsComponent implements OnInit {
-  @Input() cats: Array<Cat>;
+  @Input('cats') set setCats(cats: Array<Cat>) {
+    this.cats = cats;
+    this.showGallery = true;
+    if (this.cats && this.cats.length === 0) {
+      this.showGallery = false;
+    }
+  }
+
+  cats: Array<Cat> = [];
+  showGallery: boolean;
 
   constructor() {}
 
